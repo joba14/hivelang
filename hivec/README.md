@@ -56,7 +56,6 @@ The overall usage of the compiler will be displayed like this:
 ```console
 Usage: hivec [Options] sources...
 Options:
-    [ --include-dir  | -id ] <path>         Add include directory for the target
     [ --output       | -o  ] <path>         Set output path for the target
     [ --help         | -h  ]                Print usage message
 ```

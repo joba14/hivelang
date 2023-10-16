@@ -65,7 +65,6 @@ int main(
 	}
 
 	// [STEP 1] (Setup flags and sources).
-	struct List includeDirs = List_create();
 	const char* outpuPath = NULL;
 	struct List sources = List_create();
 
@@ -81,27 +80,7 @@ int main(
 			exit(1);
 		}
 
-		if (strcmp(flag, "--include-dir") == 0 || strcmp(flag, "-id") == 0)
-		{
-			if (argc <= 0)
-			{
-				fprintf(stderr, "[main]: error: no command-line value providded for flag `%s`!\n", flag);
-				usage(stderr, arg0);
-				exit(1);
-			}
-
-			flag = shift(&argc, &argv);
-
-			if (flag == NULL)
-			{
-				fprintf(stderr, "[main]: error: encountered flag was invalid (null)!\n");
-				usage(stderr, arg0);
-				exit(1);
-			}
-
-			List_push(&includeDirs, (void*)flag);
-		}
-		else if (strcmp(flag, "--output") == 0 || strcmp(flag, "-o") == 0)
+		if (strcmp(flag, "--output") == 0 || strcmp(flag, "-o") == 0)
 		{
 			if (outpuPath != NULL)
 			{
@@ -332,7 +311,6 @@ static void usage(
 	fprintf(stream,
 		"Usage: %s [Options] sources...\n"
 		"Options:\n"
-		"    [ --include-dir  | -id ] <path>         Add include directory for the target\n"
 		"    [ --output       | -o  ] <path>         Set output path for the target\n"
 		"    [ --help         | -h  ]                Print usage message\n",
 		argv0);
