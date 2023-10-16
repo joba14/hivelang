@@ -58,13 +58,10 @@ Usage: hivec [Options] sources...
 Options:
     [ --include-dir  | -id ] <path>         Add include directory for the target
     [ --output       | -o  ] <path>         Set output path for the target
-    [ --control-flow | -cf ] <path>         Create workflow graph file at provided path
     [ --help         | -h  ]                Print usage message
 ```
 
-Since I believe that all this should be quite self-explanatory, I will skip explaining it. Except for the --control-flow flag. The hivec compiler has a control-flow graph building tool which can be enabled with this flag. Note that to render the png or svg format for the graph (which will be in .dot format) you will have to use [graphviz](https://graphviz.org/) tool. But it is easy to use, so do nor fear.
-
-Other note, to actually compile the source to binary executable, you will also need a [nasm](https://nasm.us/) compiler. The hivec compiler generates assembly code which by itself is not an executable. But, with the power of [nasm](https://nasm.us/) you will be able to compile it and have a native program built from scratch with ONLY two compilers :D..
+Note, to actually compile the source to binary executable, you will also need a [nasm](https://nasm.us/) compiler. The hivec compiler generates assembly code which by itself is not an executable. But, with the power of [nasm](https://nasm.us/) you will be able to compile it and have a native program built from scratch with ONLY two compilers :D..
 
 ## The hivelang syntax
 
