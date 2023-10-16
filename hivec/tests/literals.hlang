@@ -1,0 +1,12 @@
+
+// Description:
+//     Testing literals.
+// 
+// Expectations:
+//     The program should produce this output: "50\nHello!\n7\n"
+
+procedure main do
+	50 printn
+	"Hello!\n" over over 1 1 syscall3 drop
+	drop printn
+end

@@ -1,0 +1,10 @@
+
+// Description:
+//     Testing hello world program.
+// 
+// Expectations:
+//     The program should produce this output: "Hello, World!\n"
+
+procedure main do
+	"Hello, World!\n" 1 1 syscall3 drop
+end

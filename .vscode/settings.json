@@ -1,0 +1,22 @@
+{
+	"files.associations": {
+		"logger.h": "c",
+		"string_view": "c",
+		"array": "c",
+		"deque": "c",
+		"string": "c",
+		"unordered_map": "c",
+		"vector": "c",
+		"initializer_list": "c",
+		"system_error": "c",
+		"types.h": "c",
+		"bit": "c",
+		"compare": "c",
+		"cstddef": "c",
+		"limits": "c",
+		"memory": "c",
+		"new": "c",
+		"functional": "c"
+	},
+	"todo-tree.tree.scanMode": "workspace only"
+}

@@ -1,0 +1,82 @@
+
+procedure main do
+	10 while clone 0 greater do
+		clone printn
+		1 subtract
+	end drop
+end
+
+
+// procedure main do
+// 	memory buffer 33 end
+// 	"Hello, World!\n" swap
+// 
+// 	with dst src len do
+// 		0 while clone len less do
+// 			clone 8 multiply dst add clone 8 multiply src add write
+// 		end drop
+// 	end
+// end
+
+
+
+// procedure rec_print require i64 do
+// 	if clone 0 greater do
+// 		clone printn
+// 		clone 1 subtract rec_print
+// 	end
+// 	drop
+// end
+// 
+// procedure func2 require p64 i64 do
+// 	1 1 syscall3 drop
+// end
+// 
+// 
+// procedure main do
+// 	10 rec_print
+// end
+
+
+
+
+
+// procedure test1 require p64 i64 return i64 do
+// 	1 1 syscall3
+// end
+// 
+// 
+// 
+// procedure main do
+// 	"TEST!\n" test1 drop
+// end
+
+
+// procedure main do
+// 	"Hello, World!\n" over over
+// 	1 1 syscall3 drop
+// 	1 1 syscall3 drop
+// 	100 printn drop
+// end
+
+
+
+// procedure func1 do
+// 	10 drop
+// end
+// 
+// 
+// 
+// procedure print10 require i64 do
+// 	while clone clone 10 add less do
+// 		"!\n" 1 1 syscall3 drop
+// 		1 add
+// 	end drop
+// end
+// 
+// 
+// procedure main require i64 p64 return i64 do
+// 	drop drop
+// 	"Hello, World!\n" 1 1 syscall3 drop
+// 	10 print10
+// end

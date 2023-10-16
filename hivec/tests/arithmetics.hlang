@@ -1,0 +1,14 @@
+
+// Description:
+//     Testing arithmetic operations.
+// 
+// Expectations:
+//     The program should produce this output: "30\n10\n200\n2\n1\n"
+
+procedure main do
+	20 10 add printn
+	20 10 subtract printn
+	20 10 multiply printn
+	20 10 divide printn
+	5 2 modulus printn
+end

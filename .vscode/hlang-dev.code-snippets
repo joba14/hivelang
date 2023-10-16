@@ -1,0 +1,60 @@
+
+{
+	"main": {
+		"prefix": "main",
+		"description": "Hivelang main snippet",
+		"body": [
+			"",
+			"procedure main require p64 i64 do",
+			"\t// body",
+			"end",
+			""
+		]
+	},
+	"procedure": {
+		"prefix": "procedure",
+		"description": "Hivelang procedure snippet",
+		"body": [
+			"",
+			"procedure $name require $Tin return $Tout do",
+			"\t// body",
+			"end",
+			""
+		]
+	},
+	"if": {
+		"prefix": "if",
+		"description": "Hivelang if snippet",
+		"body": [
+			"",
+			"if $condition do",
+			"\t// body",
+			"end",
+			""
+		]
+	},
+	"if-else": {
+		"prefix": "if-else",
+		"description": "Hivelang if-else snippet",
+		"body": [
+			"",
+			"if $condition do",
+			"\t// body",
+			"else",
+			"\t// body",
+			"end",
+			""
+		]
+	},
+	"while": {
+		"prefix": "while",
+		"description": "Hivelang while snippet",
+		"body": [
+			"",
+			"while $condition do",
+			"\t// body",
+			"end",
+			""
+		]
+	}
+}

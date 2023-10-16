@@ -1,0 +1,39 @@
+
+devmem 98u add 1u devstore
+
+0u while clone1 98u less then
+
+	0u while clone1 100u less then
+
+		clone1 devmem add devload if
+			clone1 devmem add 100u add 42u devstore
+		else
+			clone1 devmem add 100u add 32u devstore
+		end
+
+		1u add
+
+	end
+
+	devmem add 100u add 10u devstore
+	101u devmem 100u add 1u 1u syscall3
+
+	// Pattern
+	devmem 0u add devload 1u shiftl
+	devmem 1u add devload
+	bor
+
+	1u while clone1 98u less then // (3)
+		swap 1u shiftl 7u band
+		over devmem add 1u add devload bor
+		clone2 110u swap shiftr 1u band
+		swap devmem add swap devstore
+		swap
+
+		1u add
+	end
+
+	drop2 // Dropping loop (3) and pattern
+	1u add
+
+end drop1

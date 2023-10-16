@@ -1,0 +1,16 @@
+
+// Description:
+//     Testing command-line arguments. This test will have 3 args: "foo" "bar" "baz" passed
+//     to it. It will print how many arguments it got.
+// 
+// Notes:
+//     Arguments count should appear as the first element on the stack and it is all provided
+//     args + 1, because the first cmd argument is the path to the program itself.
+// 
+// Expectations:
+//     The program should produce this output: "4\n"
+
+procedure main require p64 i64 do
+	printn // Printing the argc.
+	drop // Dropping pointer to argv.
+end

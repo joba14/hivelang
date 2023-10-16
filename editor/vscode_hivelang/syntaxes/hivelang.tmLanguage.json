@@ -1,0 +1,87 @@
+
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "hivelang",
+	"patterns": [
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#globalKeywords"
+		},
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#intrinsics"
+		},
+		{
+			"include": "#specifiers"
+		},
+		{
+			"include": "#numerics"
+		},
+		{
+			"include": "#procedures"
+		},
+		{
+			"include": "#strings"
+		}
+	],
+	"repository": {
+		"comments": {
+			"patterns": [{
+				"name": "comment.line.double-slash",
+				"match": "\/\\*.+?\\*\/|\/\/.*(?=[\n\r])"
+			}]
+		},
+		"globalKeywords": {
+			"patterns": [{
+				"name": "entity.name.tag",
+				"match": "\\b(procedure|require|return|memory)\\b"
+			}]
+		},
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.hivelang",
+				"match": "\\b(if|else|while|with|do|end)\\b"
+			}]
+		},
+		"intrinsics": {
+			"patterns": [{
+				"name": "variable.name",
+				"match": "\\b(drop|clone|swap|over|equal|less|greater|add|subtract|multiply|divide|modulus|band|bor|bnot|shiftl|shiftr|syscall0|syscall1|syscall2|syscall3|syscall4|syscall5|syscall6)\\b"
+			}]
+		},
+		"specifiers": {
+			"patterns": [{
+				"name": "entity.name.type",
+				"match": "\\b(i64|p64)\\b"
+			}]
+		},
+		"numerics": {
+			"patterns": [{
+				"name": "constant.numeric",
+				"match": "\\b([-+]\\d+|\\d+)\\b"
+			}]
+		},
+		"procedures": {
+			"patterns": [{
+				"name": "entity.name.function",
+				"match": "\\w+|\\w+\\s+"
+			}]
+		},
+		"strings": {
+			"name": "string.quoted.double.hivelang",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.hivelang",
+					"match": "\\\\."
+				}
+			]
+		}
+	},
+	"scopeName": "source.hlang"
+}

@@ -1,0 +1,26 @@
+
+{
+	"name": "hlang-syntax-highlighting",
+	"displayName": "hlang-syntax-highlighting",
+	"description": "just a simple syntax highleghter for hivelang",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.71.0"
+	},
+	"categories": [
+		"Programming Languages"
+	],
+	"contributes": {
+		"languages": [{
+			"id": "hivelang",
+			"aliases": ["hivelang", "hivelang"],
+			"extensions": ["hlang"],
+			"configuration": "./language-configuration.json"
+		}],
+		"grammars": [{
+			"language": "hivelang",
+			"scopeName": "source.hlang",
+			"path": "./syntaxes/hivelang.tmLanguage.json"
+		}]
+	}
+}

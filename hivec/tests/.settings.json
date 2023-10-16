@@ -1,0 +1,30 @@
+{
+	"hivec": "./../bin/linux/debug/hivec",
+	"extentions": {
+		"source": ".hlang",
+		"intermediate": ".asm",
+		"expected": ".hlang.expected"
+	},
+	"tests": {
+		"cmd_args": {
+			"args": [ "foo", "baz", "goo" ],
+			"exclude": false,
+			"cleanup": true
+		},
+		"hello_world": {
+			"args": [ ],
+			"exclude": false,
+			"cleanup": true
+		},
+		"arithmetics": {
+			"args": [ ],
+			"exclude": false,
+			"cleanup": true
+		},
+		"literals": {
+			"args": [ ],
+			"exclude": false,
+			"cleanup": true
+		}
+	}
+}
