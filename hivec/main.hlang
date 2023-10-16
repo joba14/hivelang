@@ -1,5 +1,0 @@
-
-procedure main return i64 do
-	"Hello, World!\n" 1 1 syscall3 drop
-	0
-end
