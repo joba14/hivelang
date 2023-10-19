@@ -5,7 +5,7 @@
  * @copyright This file is a part of the project hivelang and is distributed under MIT license that
  * should have been included with the project. If not, see https://choosealicense.com/licenses/mit/
  *
- * @author jorisb
+ * @author joba14
  *
  * @date 2022-09-26
  */
@@ -935,7 +935,7 @@ static signed char Lexer_tryParseLiteral(
 static signed char Lexer_isWhitespace(
 	const char ch)
 {
-	return ch == ' ' || ch == '\t' || ch == '\n' ? 1 : 0;
+	return ch == ' ' || ch == '\t' || ch == '\n' || ch == '\r' ? 1 : 0;
 }
 
 static void Lexer_skipWhitespace(
