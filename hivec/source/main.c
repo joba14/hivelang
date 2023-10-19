@@ -135,7 +135,7 @@ int main(
 	struct Queue logs = Queue_create();
 
 	// [STEP 4] (Validate source files).
-	signed long long nonExistingFilesCount = 0;
+	int64_t nonExistingFilesCount = 0;
 
 	for (struct LNode* iterator = sources.front; iterator != NULL; iterator = iterator->next)
 	{

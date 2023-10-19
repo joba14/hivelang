@@ -51,7 +51,7 @@ signed char Translator_translateTokens(
 
 #if HIVEC_DEBUG
 		Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-			(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+			(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 			"locator of the log above this meesage."));
 #endif
 
@@ -155,7 +155,7 @@ signed char Translator_translateTokens(
 
 		fprintf(file, "\tstr_%s: db", hash256(token->source.buffer, token->source.length).stringified);
 
-		for (signed long long i = 0; i < token->value.string.length; ++i)
+		for (int64_t i = 0; i < token->value.string.length; ++i)
 		{
 			fprintf(file, " %#02x", token->value.string.bytes[i]);
 
@@ -195,7 +195,7 @@ signed char Translator_translateTokens(
 		{
 			fprintf(file, "\tstr_%s: db", hash256(token->source.buffer, token->source.length).stringified);
 
-			for (signed long long i = 0; i < token->value.string.length; ++i)
+			for (int64_t i = 0; i < token->value.string.length; ++i)
 			{
 				fprintf(file, " %#02x", token->value.string.bytes[i]);
 
@@ -213,9 +213,9 @@ signed char Translator_translateTokens(
 	fprintf(file, "\n");
 	fprintf(file, "segment .bss\n");
 	fprintf(file, "\targs_ptr: resq 1\n");
-	#define RET_STACK_CAP ((signed long long)4096)
+	#define RET_STACK_CAP ((int64_t)4096)
 	fprintf(file, "\tret_stack_rsp: resq 1\n");
-	fprintf(file, "\tret_stack: resb %lld\n", RET_STACK_CAP);
+	fprintf(file, "\tret_stack: resb %ld\n", RET_STACK_CAP);
 	fprintf(file, "\tret_stack_end:\n");
 
 	return 1;
@@ -625,7 +625,7 @@ static void Translator_translateProcedure(
 			{
 				fprintf(file, ";; -- %.*s -- \n", (signed int)token->source.length, token->source.buffer);
 				fprintf(file, "addr_%s:\n", token->hash.stringified);
-				fprintf(file, "\tmov rax, %lld\n", token->value.i64);
+				fprintf(file, "\tmov rax, %ld\n", token->value.i64);
 				fprintf(file, "\tpush rax\n");
 			} break;
 
@@ -635,7 +635,7 @@ static void Translator_translateProcedure(
 				fprintf(file, "addr_%s:\n", token->hash.stringified);
 
 				// Pushing string's length
-				fprintf(file, "\tmov rax, %lld\n", token->value.string.length);
+				fprintf(file, "\tmov rax, %ld\n", token->value.string.length);
 				fprintf(file, "\tpush rax\n");
 
 				// Pushing pointer to the string

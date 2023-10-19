@@ -138,7 +138,7 @@ void* Stack_pop(
 
 void* Stack_peek(
 	struct Stack* const stack,
-	signed long long offset)
+	int64_t offset)
 {
 	// NOTE: using `assert` and not `if`
 	// REASONS:
@@ -170,7 +170,7 @@ void* Stack_peek(
 
 	struct SNode* node = stack->top;
 
-	for (signed long long index = 0; index < offset; ++index)
+	for (int64_t index = 0; index < offset; ++index)
 	{
 		node = node->previous;
 	}
@@ -462,7 +462,7 @@ const char* Location_stringify(
 {
 	#define bufferCapcity ((signed int)512)
 	static char buffer[bufferCapcity];
-	snprintf(buffer, bufferCapcity, "%s:%lld:%lld", location.file, location.line, location.column);
+	snprintf(buffer, bufferCapcity, "%s:%ld:%ld", location.file, location.line, location.column);
 	#undef bufferCapcity
 	return buffer;
 }
@@ -519,9 +519,9 @@ const char* Token_stringify(
 	// NOTE: this `stringifiedTokensKindsCount` define must be changed when modifying the `stringifiedTokensKinds` set!
 #if HIVEC_DEBUG
 // TODO: remove:
-	#define stringifiedTokensKindsCount ((signed long long)42)
+	#define stringifiedTokensKindsCount ((int64_t)42)
 #else
-	#define stringifiedTokensKindsCount ((signed long long)41)
+	#define stringifiedTokensKindsCount ((int64_t)41)
 #endif
 	static const char* stringifiedTokensKinds[] =
 	{
@@ -582,7 +582,7 @@ const char* Token_stringify(
 	#define bufferCapcity ((signed int)1024)
 	static char buffer[bufferCapcity];
 
-	snprintf(buffer, bufferCapcity, "id=`%lld` kind=`%s` source=`%.*s` location=`%s`",
+	snprintf(buffer, bufferCapcity, "id=`%ld` kind=`%s` source=`%.*s` location=`%s`",
 		token->id,
 		stringifiedTokensKinds[token->kind],
 		(int)token->source.length, token->source.buffer,
@@ -753,7 +753,7 @@ const char* Severity_stringify(
 	#define RED(str) "\033[31m"str"\033[0m"
 
 	// NOTE: this `stringifiedSeveritiesCount` define must be changed when modifying the `stringifiedSeverities` set!
-	#define stringifiedSeveritiesCount ((signed long long)4)
+	#define stringifiedSeveritiesCount ((int64_t)4)
 	const char* stringifiedSeverities[] =
 	{
 		[SEVERITY_SUCCESS] = GREEN("success"),
@@ -805,7 +805,7 @@ struct Log* Log_create(
 	va_list args;
 
 	va_start(args, format);
-	signed long long written = vsnprintf(log->content, logCapacity * sizeof(char), format, args);
+	int64_t written = vsnprintf(log->content, logCapacity * sizeof(char), format, args);
 	log->content[written] = 0;
 
 	va_end(args);

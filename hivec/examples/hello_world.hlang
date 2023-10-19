@@ -1,32 +1,9 @@
 
-
-procedure main require i64 p64 return i64 do
+procedure main
+	require i64 p64
+	return i64
+do
 	drop drop // Dropping argc and argv
-	"Hello, World!\n" 1 1 syscall3 drop
-	0
+	"hello, world!\n" 1 1 syscall3 drop
+	0 // Returning 0 exit code
 end
-
-
-// procedure write require i64 p64 i64 return i64 do
-// 	// write id = 1
-// 	1 syscall3
-// end
-
-
-// procedure write_stdout require i64 p64 do
-// 	// 1 = stdout
-// 	1 write
-// end
-
-
-// procedure exit require i64 do
-// 	// 60 = exit
-// 	60 syscall1 drop
-// end
-
-
-// procedure main require i64 p64 return i64 do
-// 	drop drop // Dropping argc and argv
-// 	"Hello, World!\n" write_stdout
-// 	0 exit
-// end

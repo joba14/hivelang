@@ -1,0 +1,21 @@
+
+procedure print_range
+	require i64 i64
+do
+	while over over less do
+		swap
+		clone printn
+		1 add
+		swap
+	end drop drop
+end
+
+
+procedure main
+	require i64 p64
+	return i64
+do
+	drop drop // Dropping argc and argv
+	1 11 print_range
+	0 // Returning 0 exit code
+end

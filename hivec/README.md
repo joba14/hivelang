@@ -89,17 +89,6 @@ NOTE: everything must be inside a procedure (function)!
 		// ...
 	end
 	```
- - `inline`
-	```
-	// Compatible with type specifiers
-	inline procedure func1 do
-		// ...
-	end
-
-	inline procedure require i64 p64 return i64 do
-		// ...
-	end
-	```
 
 ### Literals:
  - `i64`
@@ -110,11 +99,11 @@ NOTE: everything must be inside a procedure (function)!
 	+20
 	// stack: 60 -10 20
 	```
- - `string`
+ - `p64`
 	```hlang
 	// stack: <empty>
 	"Hello\n" // Supports escape sequences!
-	// stack: 6 <pointer_to_string>
+	// stack: 6 <pointer_to_string (p64)>
 	```
 
 ### Arithmetic:

@@ -14,7 +14,6 @@
 
 #include <assert.h>
 #include <stdlib.h>
-#include <stdint.h>
 #include <string.h>
 #include <stdio.h>
 
@@ -27,22 +26,22 @@
 /**
  * Macro for creating 'invalid' hashes (not processed ones).
  */
-#define INVALID_HASH256 ((struct Hash256) {.blocks = {0}, .stringified = {0}, .valid = 0})
+#define INVALID_HASH256 ((struct Hash256) { .blocks = {0}, .stringified = {0}, .valid = false })
 
 /**
  * Primary value used for hashing no.1.
  */
-#define PRIMARY1 ((const unsigned int)31)
+#define PRIMARY1 ((uint64_t)31)
 
 /**
  * Primary value used for hashing no.2.
  */
-#define PRIMARY2 ((const signed long long)2747636419)
+#define PRIMARY2 ((uint64_t)2747636419)
 
 /**
  * Primary value used for hashin no.3.
  */
-#define PRIMARY3 ((const signed long long)2654435769)
+#define PRIMARY3 ((uint64_t)2654435769)
 
 // Note: these primary values were taken from the internet. I searched what constants are usually
 // used in hashing algorithms, and learnt about prime numbers. First one I came up by myself, and
@@ -53,9 +52,9 @@
  * manipulation.
  */
 static inline void setBlock(
-	const signed int index,
-	const signed int state,
-	const unsigned int previous,
+	const uint64_t index,
+	const uint32_t state,
+	const uint32_t previous,
 	struct Hash256* const hash)
 {
 	assert(hash != NULL);
@@ -70,8 +69,8 @@ static inline void setBlock(
 }
 
 struct Hash256 hash256(
-	const char* input,
-	signed long long length)
+	const char* const input,
+	const uint64_t length)
 {
 	// Input validation and error handling
 	if (input == NULL)
@@ -79,31 +78,30 @@ struct Hash256 hash256(
 		return INVALID_HASH256;
 	}
 
-	if (length < 0)
-	{
-		return INVALID_HASH256;
-	}
-
 	// Setting up hash blocks
 	struct Hash256 hash = INVALID_HASH256;
-	unsigned int state = 0;
+	uint32_t state = 0;
 
-	for (signed int i = 0; i < HASH256_BLOCKS_COUNT; ++i)
+	for (uint64_t i = 0; i < HASH256_BLOCKS_COUNT; ++i)
+	{
 		setBlock(i, state, i == 0 ? state : hash.blocks[i - 1], &hash);
+	}
 
 	state = 0;
 
-	for (signed int i = 0; i < length; ++i)
+	for (uint64_t i = 0; i < length; ++i)
 	{
-		const unsigned int value = *(unsigned int*)(input + i);
+		const uint32_t value = *(uint32_t*)(input + i);
 		state = PRIMARY1 * state - PRIMARY2 * state + (state ^ PRIMARY3) + value;
 
-		for (signed int j = 0; j < HASH256_BLOCKS_COUNT; ++j)
+		for (uint64_t j = 0; j < HASH256_BLOCKS_COUNT; ++j)
+		{
 			setBlock(j, state, j == 0 ? state : hash.blocks[j - 1], &hash);
+		}
 	}
 
 	// Setting up stringified hash
-	for (signed int i = 0; i < HASH256_BLOCKS_COUNT; ++i)
+	for (uint64_t i = 0; i < HASH256_BLOCKS_COUNT; ++i)
 	{
 		if (snprintf(hash.stringified + (i * HASH256_BLOCKS_COUNT), HASH256_BLOCKS_COUNT + 1, "%08x", hash.blocks[i]) <= 0)
 		{
@@ -112,7 +110,7 @@ struct Hash256 hash256(
 	}
 
 	hash.stringified[HASH256_STRING_LENGTH] = 0;
-	hash.valid = 1;
+	hash.valid = true;
 	return hash;
 }
 

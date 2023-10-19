@@ -1,0 +1,36 @@
+
+procedure factorial
+	require i64
+	return i64
+do
+	if clone 1 less do
+		drop 0
+	else
+		// v_res v_iter
+		clone 1 subtract
+		while clone 0 greater do
+			swap
+			over multiply
+			swap
+			1 subtract
+		end drop
+	end
+end
+
+
+procedure main
+	require i64 p64
+	return i64
+do
+	drop drop // Dropping argc and argv
+	0 factorial printn
+	1 factorial printn
+	2 factorial printn
+	3 factorial printn
+	4 factorial printn
+	5 factorial printn
+	6 factorial printn
+	7 factorial printn
+	8 factorial printn
+	0 // Returning 0 exit code
+end

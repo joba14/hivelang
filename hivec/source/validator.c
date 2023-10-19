@@ -48,8 +48,8 @@ signed char Validator_validateTokens(
 	assert(globals->procedures.count > 0);
 
 	enum { VALUE_TYPE_I64 = 0, VALUE_TYPE_P64 };
-	static signed long long I64_VALUE_TYPE = (signed long long)VALUE_TYPE_I64;
-	static signed long long P64_VALUE_TYPE = (signed long long)VALUE_TYPE_P64;
+	static int64_t I64_VALUE_TYPE = (int64_t)VALUE_TYPE_I64;
+	static int64_t P64_VALUE_TYPE = (int64_t)VALUE_TYPE_P64;
 
 	for (struct LNode* proceduresIterator = globals->procedures.front; proceduresIterator != NULL; proceduresIterator = proceduresIterator->next)
 	{
@@ -122,14 +122,14 @@ signed char Validator_validateTokens(
 
 #if HIVEC_DEBUG
 						Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-							(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+							(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 							"locator of the log above this meesage."));
 #endif
 
 						return 0;
 					}
 
-					signed long long a = *(signed long long*)Stack_pop(&stack);
+					int64_t a = *(int64_t*)Stack_pop(&stack);
 
 					if (a != I64_VALUE_TYPE)
 					{
@@ -138,7 +138,7 @@ signed char Validator_validateTokens(
 
 #if HIVEC_DEBUG
 						Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-							(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+							(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 							"locator of the log above this meesage."));
 #endif
 
@@ -155,15 +155,15 @@ signed char Validator_validateTokens(
 
 #if HIVEC_DEBUG
 						Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-							(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+							(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 							"locator of the log above this meesage."));
 #endif
 
 						return 0;
 					}
 
-					signed long long b = *(signed long long*)Stack_pop(&stack);
-					signed long long a = *(signed long long*)Stack_pop(&stack);
+					int64_t b = *(int64_t*)Stack_pop(&stack);
+					int64_t a = *(int64_t*)Stack_pop(&stack);
 
 					if (a == I64_VALUE_TYPE && a == b)
 					{
@@ -180,7 +180,7 @@ signed char Validator_validateTokens(
 
 #if HIVEC_DEBUG
 						Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-							(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+							(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 							"locator of the log above this meesage."));
 #endif
 
@@ -197,15 +197,15 @@ signed char Validator_validateTokens(
 
 #if HIVEC_DEBUG
 						Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-							(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+							(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 							"locator of the log above this meesage."));
 #endif
 
 						return 0;
 					}
 
-					signed long long b = *(signed long long*)Stack_pop(&stack);
-					signed long long a = *(signed long long*)Stack_pop(&stack);
+					int64_t b = *(int64_t*)Stack_pop(&stack);
+					int64_t a = *(int64_t*)Stack_pop(&stack);
 
 					if (a == I64_VALUE_TYPE && a == b)
 					{
@@ -222,7 +222,7 @@ signed char Validator_validateTokens(
 
 #if HIVEC_DEBUG
 						Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-							(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+							(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 							"locator of the log above this meesage."));
 #endif
 
@@ -239,15 +239,15 @@ signed char Validator_validateTokens(
 
 #if HIVEC_DEBUG
 						Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-							(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+							(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 							"locator of the log above this meesage."));
 #endif
 
 						return 0;
 					}
 
-					signed long long b = *(signed long long*)Stack_pop(&stack);
-					signed long long a = *(signed long long*)Stack_pop(&stack);
+					int64_t b = *(int64_t*)Stack_pop(&stack);
+					int64_t a = *(int64_t*)Stack_pop(&stack);
 
 					if (a == I64_VALUE_TYPE && a == b)
 					{
@@ -260,7 +260,7 @@ signed char Validator_validateTokens(
 
 #if HIVEC_DEBUG
 						Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-							(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+							(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 							"locator of the log above this meesage."));
 #endif
 
@@ -277,15 +277,15 @@ signed char Validator_validateTokens(
 
 #if HIVEC_DEBUG
 						Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-							(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+							(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 							"locator of the log above this meesage."));
 #endif
 
 						return 0;
 					}
 
-					signed long long b = *(signed long long*)Stack_pop(&stack);
-					signed long long a = *(signed long long*)Stack_pop(&stack);
+					int64_t b = *(int64_t*)Stack_pop(&stack);
+					int64_t a = *(int64_t*)Stack_pop(&stack);
 
 					if (a == I64_VALUE_TYPE && a == b)
 					{
@@ -298,7 +298,7 @@ signed char Validator_validateTokens(
 
 #if HIVEC_DEBUG
 						Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-							(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+							(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 							"locator of the log above this meesage."));
 #endif
 
@@ -315,15 +315,15 @@ signed char Validator_validateTokens(
 
 #if HIVEC_DEBUG
 						Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-							(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+							(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 							"locator of the log above this meesage."));
 #endif
 
 						return 0;
 					}
 
-					signed long long b = *(signed long long*)Stack_pop(&stack);
-					signed long long a = *(signed long long*)Stack_pop(&stack);
+					int64_t b = *(int64_t*)Stack_pop(&stack);
+					int64_t a = *(int64_t*)Stack_pop(&stack);
 
 					if (a == I64_VALUE_TYPE && a == b)
 					{
@@ -336,7 +336,7 @@ signed char Validator_validateTokens(
 
 #if HIVEC_DEBUG
 						Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-							(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+							(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 							"locator of the log above this meesage."));
 #endif
 
@@ -353,15 +353,15 @@ signed char Validator_validateTokens(
 
 #if HIVEC_DEBUG
 						Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-							(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+							(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 							"locator of the log above this meesage."));
 #endif
 
 						return 0;
 					}
 
-					signed long long b = *(signed long long*)Stack_pop(&stack);
-					signed long long a = *(signed long long*)Stack_pop(&stack);
+					int64_t b = *(int64_t*)Stack_pop(&stack);
+					int64_t a = *(int64_t*)Stack_pop(&stack);
 
 					if (a == b)
 					{
@@ -374,7 +374,7 @@ signed char Validator_validateTokens(
 
 #if HIVEC_DEBUG
 						Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-							(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+							(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 							"locator of the log above this meesage."));
 #endif
 
@@ -391,15 +391,15 @@ signed char Validator_validateTokens(
 
 #if HIVEC_DEBUG
 						Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-							(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+							(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 							"locator of the log above this meesage."));
 #endif
 
 						return 0;
 					}
 
-					signed long long b = *(signed long long*)Stack_pop(&stack);
-					signed long long a = *(signed long long*)Stack_pop(&stack);
+					int64_t b = *(int64_t*)Stack_pop(&stack);
+					int64_t a = *(int64_t*)Stack_pop(&stack);
 
 					if (a == b)
 					{
@@ -412,7 +412,7 @@ signed char Validator_validateTokens(
 
 #if HIVEC_DEBUG
 						Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-							(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+							(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 							"locator of the log above this meesage."));
 #endif
 
@@ -429,15 +429,15 @@ signed char Validator_validateTokens(
 
 #if HIVEC_DEBUG
 						Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-							(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+							(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 							"locator of the log above this meesage."));
 #endif
 
 						return 0;
 					}
 
-					signed long long b = *(signed long long*)Stack_pop(&stack);
-					signed long long a = *(signed long long*)Stack_pop(&stack);
+					int64_t b = *(int64_t*)Stack_pop(&stack);
+					int64_t a = *(int64_t*)Stack_pop(&stack);
 
 					if (a == b)
 					{
@@ -450,7 +450,7 @@ signed char Validator_validateTokens(
 
 #if HIVEC_DEBUG
 						Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-							(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+							(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 							"locator of the log above this meesage."));
 #endif
 
@@ -467,15 +467,15 @@ signed char Validator_validateTokens(
 
 #if HIVEC_DEBUG
 						Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-							(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+							(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 							"locator of the log above this meesage."));
 #endif
 
 						return 0;
 					}
 
-					signed long long b = *(signed long long*)Stack_pop(&stack);
-					signed long long a = *(signed long long*)Stack_pop(&stack);
+					int64_t b = *(int64_t*)Stack_pop(&stack);
+					int64_t a = *(int64_t*)Stack_pop(&stack);
 
 					if (a == b)
 					{
@@ -488,7 +488,7 @@ signed char Validator_validateTokens(
 
 #if HIVEC_DEBUG
 						Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-							(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+							(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 							"locator of the log above this meesage."));
 #endif
 
@@ -505,15 +505,15 @@ signed char Validator_validateTokens(
 
 #if HIVEC_DEBUG
 						Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-							(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+							(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 							"locator of the log above this meesage."));
 #endif
 
 						return 0;
 					}
 
-					signed long long b = *(signed long long*)Stack_pop(&stack);
-					signed long long a = *(signed long long*)Stack_pop(&stack);
+					int64_t b = *(int64_t*)Stack_pop(&stack);
+					int64_t a = *(int64_t*)Stack_pop(&stack);
 
 					if (a == I64_VALUE_TYPE && a == b)
 					{
@@ -526,7 +526,7 @@ signed char Validator_validateTokens(
 
 #if HIVEC_DEBUG
 						Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-							(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+							(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 							"locator of the log above this meesage."));
 #endif
 
@@ -543,15 +543,15 @@ signed char Validator_validateTokens(
 
 #if HIVEC_DEBUG
 						Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-							(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+							(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 							"locator of the log above this meesage."));
 #endif
 
 						return 0;
 					}
 
-					signed long long b = *(signed long long*)Stack_pop(&stack);
-					signed long long a = *(signed long long*)Stack_pop(&stack);
+					int64_t b = *(int64_t*)Stack_pop(&stack);
+					int64_t a = *(int64_t*)Stack_pop(&stack);
 
 					if (a == I64_VALUE_TYPE && a == b)
 					{
@@ -564,7 +564,7 @@ signed char Validator_validateTokens(
 
 #if HIVEC_DEBUG
 						Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-							(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+							(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 							"locator of the log above this meesage."));
 #endif
 
@@ -581,14 +581,14 @@ signed char Validator_validateTokens(
 
 #if HIVEC_DEBUG
 						Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-							(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+							(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 							"locator of the log above this meesage."));
 #endif
 
 						return 0;
 					}
 
-					signed long long a = *(signed long long*)Stack_pop(&stack);
+					int64_t a = *(int64_t*)Stack_pop(&stack);
 
 					if (a == I64_VALUE_TYPE)
 					{
@@ -601,7 +601,7 @@ signed char Validator_validateTokens(
 
 #if HIVEC_DEBUG
 						Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-							(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+							(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 							"locator of the log above this meesage."));
 #endif
 
@@ -618,15 +618,15 @@ signed char Validator_validateTokens(
 
 #if HIVEC_DEBUG
 						Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-							(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+							(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 							"locator of the log above this meesage."));
 #endif
 
 						return 0;
 					}
 
-					signed long long b = *(signed long long*)Stack_pop(&stack);
-					signed long long a = *(signed long long*)Stack_pop(&stack);
+					int64_t b = *(int64_t*)Stack_pop(&stack);
+					int64_t a = *(int64_t*)Stack_pop(&stack);
 
 					if (a == I64_VALUE_TYPE && a == b)
 					{
@@ -639,7 +639,7 @@ signed char Validator_validateTokens(
 
 #if HIVEC_DEBUG
 						Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-							(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+							(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 							"locator of the log above this meesage."));
 #endif
 
@@ -656,15 +656,15 @@ signed char Validator_validateTokens(
 
 #if HIVEC_DEBUG
 						Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-							(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+							(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 							"locator of the log above this meesage."));
 #endif
 
 						return 0;
 					}
 
-					signed long long b = *(signed long long*)Stack_pop(&stack);
-					signed long long a = *(signed long long*)Stack_pop(&stack);
+					int64_t b = *(int64_t*)Stack_pop(&stack);
+					int64_t a = *(int64_t*)Stack_pop(&stack);
 
 					if (a == I64_VALUE_TYPE && a == b)
 					{
@@ -677,7 +677,7 @@ signed char Validator_validateTokens(
 
 #if HIVEC_DEBUG
 						Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-							(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+							(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 							"locator of the log above this meesage."));
 #endif
 
@@ -694,7 +694,7 @@ signed char Validator_validateTokens(
 
 #if HIVEC_DEBUG
 						Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-							(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+							(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 							"locator of the log above this meesage."));
 #endif
 
@@ -714,7 +714,7 @@ signed char Validator_validateTokens(
 
 #if HIVEC_DEBUG
 						Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-							(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+							(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 							"locator of the log above this meesage."));
 #endif
 
@@ -738,7 +738,7 @@ signed char Validator_validateTokens(
 
 #if HIVEC_DEBUG
 						Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-							(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+							(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 							"locator of the log above this meesage."));
 #endif
 
@@ -762,7 +762,7 @@ signed char Validator_validateTokens(
 
 #if HIVEC_DEBUG
 						Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-							(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+							(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 							"locator of the log above this meesage."));
 #endif
 
@@ -786,7 +786,7 @@ signed char Validator_validateTokens(
 
 #if HIVEC_DEBUG
 						Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-							(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+							(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 							"locator of the log above this meesage."));
 #endif
 
@@ -810,7 +810,7 @@ signed char Validator_validateTokens(
 
 #if HIVEC_DEBUG
 						Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-							(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+							(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 							"locator of the log above this meesage."));
 #endif
 
@@ -834,7 +834,7 @@ signed char Validator_validateTokens(
 
 #if HIVEC_DEBUG
 						Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-							(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+							(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 							"locator of the log above this meesage."));
 #endif
 
@@ -858,14 +858,14 @@ signed char Validator_validateTokens(
 
 #if HIVEC_DEBUG
 						Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-							(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+							(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 							"locator of the log above this meesage."));
 #endif
 
 						return 0;
 					}
 
-					signed long long a = *(signed long long*)Stack_pop(&stack);
+					int64_t a = *(int64_t*)Stack_pop(&stack);
 					Stack_push(&stack, &a);
 					Stack_push(&stack, &a);
 				} break;
@@ -879,7 +879,7 @@ signed char Validator_validateTokens(
 
 #if HIVEC_DEBUG
 						Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-							(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+							(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 							"locator of the log above this meesage."));
 #endif
 
@@ -898,15 +898,15 @@ signed char Validator_validateTokens(
 
 #if HIVEC_DEBUG
 						Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-							(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+							(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 							"locator of the log above this meesage."));
 #endif
 
 						return 0;
 					}
 
-					signed long long b = *(signed long long*)Stack_pop(&stack);
-					signed long long a = *(signed long long*)Stack_pop(&stack);
+					int64_t b = *(int64_t*)Stack_pop(&stack);
+					int64_t a = *(int64_t*)Stack_pop(&stack);
 
 					Stack_push(&stack, &a);
 					Stack_push(&stack, &b);
@@ -924,7 +924,7 @@ signed char Validator_validateTokens(
 
 #if HIVEC_DEBUG
 						Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-							(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+							(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 							"locator of the log above this meesage."));
 #endif
 
@@ -944,15 +944,15 @@ signed char Validator_validateTokens(
 
 #if HIVEC_DEBUG
 						Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-							(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+							(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 							"locator of the log above this meesage."));
 #endif
 
 						return 0;
 					}
 
-					signed long long b = *(signed long long*)Stack_pop(&stack);
-					signed long long a = *(signed long long*)Stack_pop(&stack);
+					int64_t b = *(int64_t*)Stack_pop(&stack);
+					int64_t a = *(int64_t*)Stack_pop(&stack);
 
 					Stack_push(&stack, &b);
 					Stack_push(&stack, &a);
@@ -999,7 +999,7 @@ signed char Validator_validateTokens(
 
 #if HIVEC_DEBUG
 						Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-							(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+							(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 							"locator of the log above this meesage."));
 #endif
 
@@ -1024,14 +1024,14 @@ signed char Validator_validateTokens(
 
 #if HIVEC_DEBUG
 							Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-								(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+								(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 								"locator of the log above this meesage."));
 #endif
 
 							return 0;
 						}
 
-						signed long long type = *(signed long long*)Stack_pop(&stack);
+						int64_t type = *(int64_t*)Stack_pop(&stack);
 
 						if (temp->kind == TOKEN_KEYWORD_I64)
 						{
@@ -1041,7 +1041,7 @@ signed char Validator_validateTokens(
 
 #if HIVEC_DEBUG
 								Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-									(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+									(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 									"locator of the log above this meesage."));
 #endif
 
@@ -1056,7 +1056,7 @@ signed char Validator_validateTokens(
 
 #if HIVEC_DEBUG
 								Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-									(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+									(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 									"locator of the log above this meesage."));
 #endif
 
@@ -1069,7 +1069,7 @@ signed char Validator_validateTokens(
 
 #if HIVEC_DEBUG
 							Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-								(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+								(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 								"locator of the log above this meesage."));
 #endif
 
@@ -1103,7 +1103,7 @@ signed char Validator_validateTokens(
 
 #if HIVEC_DEBUG
 							Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-								(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+								(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 								"locator of the log above this meesage."));
 #endif
 
@@ -1136,14 +1136,14 @@ signed char Validator_validateTokens(
 
 #if HIVEC_DEBUG
 				Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-					(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+					(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 					"locator of the log above this meesage."));
 #endif
 
 				return 0;
 			}
 
-			signed long long a = *(signed long long*)Stack_peek(&stack, 0);
+			int64_t a = *(int64_t*)Stack_peek(&stack, 0);
 
 			if (a == I64_VALUE_TYPE && token->kind == TOKEN_KEYWORD_I64)
 			{
@@ -1159,7 +1159,7 @@ signed char Validator_validateTokens(
 
 #if HIVEC_DEBUG
 				Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-					(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+					(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 					"locator of the log above this meesage."));
 #endif
 
@@ -1173,7 +1173,7 @@ signed char Validator_validateTokens(
 
 #if HIVEC_DEBUG
 			Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-				(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+				(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 				"locator of the log above this meesage."));
 #endif
 

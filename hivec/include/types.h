@@ -30,7 +30,7 @@ struct SNode
 struct Stack
 {
 	struct SNode* top;
-	signed long long count;
+	int64_t count;
 };
 
 struct Stack Stack_create(
@@ -48,7 +48,7 @@ void* Stack_pop(
 
 void* Stack_peek(
 	struct Stack* const stack,
-	signed long long offset);
+	int64_t offset);
 
 struct QNode
 {
@@ -60,7 +60,7 @@ struct Queue
 {
 	struct QNode* front;
 	struct QNode* back;
-	signed long long count;
+	int64_t count;
 };
 
 struct Queue Queue_create(
@@ -89,7 +89,7 @@ struct List
 {
 	struct LNode* front;
 	struct LNode* back;
-	signed long long count;
+	int64_t count;
 };
 
 struct List List_create(
@@ -109,8 +109,8 @@ signed char List_exists(
 struct Location
 {
 	const char* file;
-	signed long long line;
-	signed long long column;
+	int64_t line;
+	int64_t column;
 };
 
 #define INVALID_LOCATION ((struct Location) { .file = NULL, .line = -1, .column = -1 })
@@ -123,7 +123,7 @@ const char* Location_stringify(
 
 struct Token
 {
-	signed long long id;
+	int64_t id;
 
 	enum
 	{
@@ -188,18 +188,18 @@ struct Token
 
 	union
 	{
-		signed long long i64;
+		int64_t i64;
 		struct
 		{
 			unsigned char* bytes;
-			signed long long length;
+			int64_t length;
 		} string;
 	} value;
 
 	struct
 	{
 		char* buffer;
-		signed long long length;
+		int64_t length;
 	} source;
 
 	struct Location location;

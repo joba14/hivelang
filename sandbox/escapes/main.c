@@ -8,7 +8,7 @@ int main(void)
 {
 	const char* string = "Hi\\n\\n";
 	unsigned char bytes[100];
-	signed long long curr = 0;
+	int64_t curr = 0;
 
 	for (const char* iter = string; iter != string + sizeof(string) - 1;)
 	{
@@ -33,7 +33,7 @@ int main(void)
 		}
 	}
 
-	for (signed long long i = 0; i < curr; ++i)
+	for (int64_t i = 0; i < curr; ++i)
 		fprintf(stdout, "%#02x ", bytes[i]);
 	fprintf(stdout, "\n");
 	return 0;

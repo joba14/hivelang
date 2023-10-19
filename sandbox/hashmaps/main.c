@@ -13,12 +13,12 @@ struct DNode
 
 struct Dict
 {
-	signed long long capacity;
+	int64_t capacity;
 	struct DNode** list;
 };
 
 struct Dict Dict_create(
-	signed long long capacity)
+	int64_t capacity)
 {
 	// NOTE: using `assert` and not `if`
 	// REASONS:
@@ -43,7 +43,7 @@ struct Dict Dict_create(
 	//        and debug configuration.
 	assert(dict.list != NULL);
 
-	for (signed long long i = 0; i < capacity; ++i)
+	for (int64_t i = 0; i < capacity; ++i)
 	{
 		dict.list[i] = NULL;
 	}
@@ -51,10 +51,10 @@ struct Dict Dict_create(
 	return dict;
 }
 
-unsigned long long Dict_hash(
+uint64_t Dict_hash(
 	struct Dict* const dict,
 	const char* key,
-	const signed long long length)
+	const int64_t length)
 {
 	// NOTE: using `assert` and not `if`
 	// REASONS:
@@ -77,9 +77,9 @@ unsigned long long Dict_hash(
 	//        and debug configuration.
 	assert(length >= 0);
 
-	unsigned long long hash = 5381;
+	uint64_t hash = 5381;
 
-	for (signed long long i = 0; i < length; ++i)
+	for (int64_t i = 0; i < length; ++i)
 		hash = ((hash << 5) + hash) + key[i];
 
 	printf("POST-HASH\n");
@@ -91,7 +91,7 @@ unsigned long long Dict_hash(
 void Dict_insert(
 	struct Dict* const dict,
 	const char* key,
-	const signed long long length,
+	const int64_t length,
 	void* value)
 {
 	// NOTE: using `assert` and not `if`
@@ -118,7 +118,7 @@ void Dict_insert(
 	printf("PRE-HASH\n");
 	getchar();
 
-	const unsigned long long index = Dict_hash(dict, key, length);
+	const uint64_t index = Dict_hash(dict, key, length);
 
 	printf("PRE-INDEX\n");
 	getchar();
@@ -167,9 +167,9 @@ void Dict_insert(
 signed char Dict_exists(
 	struct Dict* const dict,
 	signed char* key,
-	const signed long long length)
+	const int64_t length)
 {
-	const unsigned long long index = Dict_hash(dict, key, length);
+	const uint64_t index = Dict_hash(dict, key, length);
 
 	struct DNode* list = dict->list[index];
 	struct DNode* temp = list;

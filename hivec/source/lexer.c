@@ -30,7 +30,7 @@ struct LexerContext
 	const char* begin;
 	const char* current;
 	const char* end;
-	signed long long count;
+	int64_t count;
 };
 
 static signed char Lexer_validateTokens(
@@ -47,13 +47,13 @@ static struct Token* Lexer_createToken(
 
 static void Lexer_setupToken(
 	struct Token* const token,
-	const signed long long id,
-	const signed long long kind,
+	const int64_t id,
+	const int64_t kind,
 	const struct Location location);
 
 static void Lexer_moveBy(
 	struct LexerContext* const context,
-	const signed long long amount);
+	const int64_t amount);
 
 static signed char Lexer_tryParseKeyword(
 	struct LexerContext* const context,
@@ -100,7 +100,7 @@ signed char Lexer_lexFile(
 
 #if HIVEC_DEBUG
 		Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-			(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+			(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 			"locator of the log above this meesage."));
 #endif
 
@@ -138,7 +138,7 @@ signed char Lexer_lexFile(
 
 #if HIVEC_DEBUG
 		Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-			(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+			(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 			"locator of the log above this meesage."));
 #endif
 
@@ -146,8 +146,8 @@ signed char Lexer_lexFile(
 	}
 
 	char* line = NULL;
-	signed long long length = 0;
-	signed long long read;
+	int64_t length = 0;
+	int64_t read;
 
 	while ((read = getline(&line, (long unsigned int*)&length, file)) != -1)
 	{
@@ -209,7 +209,7 @@ signed char Lexer_validateTokens(
 
 #if HIVEC_DEBUG
 		Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-			(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+			(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 			"locator of the log above this meesage."));
 #endif
 
@@ -239,7 +239,7 @@ signed char Lexer_validateTokens(
 
 #if HIVEC_DEBUG
 			Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-				(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+				(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 				"locator of the log above this meesage."));
 #endif
 
@@ -318,7 +318,7 @@ static void Lexer_lexLine(
 			Lexer_setupToken(token, context->count++, TOKEN_INVALID, context->location);
 
 			const char* source = context->current;
-			signed long long sourceLength = 0;
+			int64_t sourceLength = 0;
 			for (; !Lexer_isWhitespace(*context->current); ++sourceLength) { Lexer_moveBy(context, 1); }
 
 			token->source.buffer = (char*)malloc((sourceLength) * sizeof(char));
@@ -360,8 +360,8 @@ static struct Token* Lexer_createToken(
 
 static void Lexer_setupToken(
 	struct Token* const token,
-	const signed long long id,
-	const signed long long kind,
+	const int64_t id,
+	const int64_t kind,
 	const struct Location location)
 {
 	// NOTE: using `assert` and not `if`
@@ -379,7 +379,7 @@ static void Lexer_setupToken(
 
 	{
 		char buffer[128 + 1];
-		signed long long length = snprintf(buffer, 128, "%p_%lld", (void*)token, id);
+		int64_t length = snprintf(buffer, 128, "%p_%ld", (void*)token, id);
 		assert(length >= 0);
 		buffer[length] = 0;
 		token->hash = hash256(buffer, length);
@@ -388,7 +388,7 @@ static void Lexer_setupToken(
 
 static void Lexer_moveBy(
 	struct LexerContext* const context,
-	const signed long long amount)
+	const int64_t amount)
 {
 	// NOTE: using `assert` and not `if`
 	// REASONS:
@@ -397,7 +397,7 @@ static void Lexer_moveBy(
 	//        and debug configuration.
 	assert(context != NULL);
 
-	for (signed long long i = 0; i < amount && context->current < context->end; ++i)
+	for (int64_t i = 0; i < amount && context->current < context->end; ++i)
 	{
 		++context->current;
 		++context->location.column;
@@ -423,7 +423,7 @@ static signed char Lexer_tryParseKeyword(
 	assert(tokens != NULL);
 
 	// NOTE: this `keywordsCount` define must be changed when modifying the `keywords` set!
-	#define keywordsCount ((signed long long)11)
+	#define keywordsCount ((int64_t)11)
 	const char* keywords[] =
 	{
 		[TOKEN_KEYWORD_MAIN] = "main",
@@ -441,14 +441,14 @@ static signed char Lexer_tryParseKeyword(
 	static_assert((TOKEN_LAST_KEYWORD - TOKEN_FIRST_KEYWORD + 1) == keywordsCount,
 		"The local `keywords` set is not synced with updated types enum!");
 
-	signed long long wordLength = 0;
+	int64_t wordLength = 0;
 	for (const char* temp = context->current; !Lexer_isWhitespace(*temp) && temp != context->end; ++temp)
 		++wordLength;
 
-	for (signed long long type = TOKEN_FIRST_KEYWORD; type <= TOKEN_LAST_KEYWORD; ++type)
+	for (int64_t type = TOKEN_FIRST_KEYWORD; type <= TOKEN_LAST_KEYWORD; ++type)
 	{
 		const char* keyword = keywords[type];
-		const signed long long keywordLength = strlen(keyword);
+		const int64_t keywordLength = strlen(keyword);
 
 		if ((wordLength == keywordLength) && (strncmp(context->current, keyword, keywordLength) == 0))
 		{
@@ -501,9 +501,9 @@ static signed char Lexer_tryParseIntrinsic(
 	// NOTE: this `intrinsicsCount` define must be changed when modifying the `intrinsics` set!
 #if HIVEC_DEBUG
 // TODO: remove:
-	#define intrinsicsCount ((signed long long)26)
+	#define intrinsicsCount ((int64_t)26)
 #else
-	#define intrinsicsCount ((signed long long)25)
+	#define intrinsicsCount ((int64_t)25)
 #endif
 	static const char* intrinsics[] =
 	{
@@ -540,14 +540,14 @@ static signed char Lexer_tryParseIntrinsic(
 	static_assert((TOKEN_LAST_INTRINSIC- TOKEN_FIRST_INTRINSIC + 1) == intrinsicsCount,
 		"The local `intrinsics` set is not synced with updated types enum!");
 
-	signed long long wordLength = 0;
+	int64_t wordLength = 0;
 	for (const char* temp = context->current; !Lexer_isWhitespace(*temp) && temp != context->end; ++temp)
 		++wordLength;
 
-	for (signed long long type = TOKEN_FIRST_INTRINSIC; type <= TOKEN_LAST_INTRINSIC; ++type)
+	for (int64_t type = TOKEN_FIRST_INTRINSIC; type <= TOKEN_LAST_INTRINSIC; ++type)
 	{
 		const char* intrinsic = intrinsics[type];
-		const signed long long intrensicLength = strlen(intrinsic);
+		const int64_t intrensicLength = strlen(intrinsic);
 
 		if ((wordLength == intrensicLength) && (strncmp(context->current, intrinsic, intrensicLength) == 0))
 		{
@@ -612,7 +612,7 @@ static signed char Lexer_tryParseIdentifier(
 		return 0;
 	}
 
-	signed long long wordLength = 0;
+	int64_t wordLength = 0;
 	for (const char* temp = context->current; !Lexer_isWhitespace(*temp) && Lexer_isIdentifierChar(*temp) && temp != context->end; ++temp)
 		++wordLength;
 
@@ -668,7 +668,7 @@ static signed char Lexer_tryParseLiteral(
 	if (*context->current == '\"')
 	{
 		const char* literal = context->current + 1;
-		signed long long literalLength = 0;
+		int64_t literalLength = 0;
 
 		for (const char* iterator = context->current + 1; 1; ++iterator, ++literalLength)
 		{
@@ -676,9 +676,9 @@ static signed char Lexer_tryParseLiteral(
 			if (*(iterator) == '\"' && (iterator - 2 >= context->begin) && *(iterator - 1) == '\"' && *(iterator - 2) == '\"') break;
 		}
 
-		signed long long bytesLength = 0;
+		int64_t bytesLength = 0;
 
-		for (signed long long index = 0; index < literalLength; ++index, ++bytesLength)
+		for (int64_t index = 0; index < literalLength; ++index, ++bytesLength)
 		{
 			if (literal[index] == '\\' && index + 1 < literalLength)
 			{
@@ -758,7 +758,7 @@ static signed char Lexer_tryParseLiteral(
 		//        and debug configuration.
 		assert(bytes != NULL);
 
-		for (signed long long index = 0, iter = 0; index < literalLength;)
+		for (int64_t index = 0, iter = 0; index < literalLength;)
 		{
 			if (literal[index] == '\\' && index + 2 <= literalLength)
 			{
@@ -888,7 +888,7 @@ static signed char Lexer_tryParseLiteral(
 			return 0;
 
 		const char* literal = context->current;
-		signed long long literalLength = 1;
+		int64_t literalLength = 1;
 		for (const char* iterator = context->current + 1; isdigit(*iterator) && iterator < context->end; ++iterator, ++literalLength);
 
 		if (literalLength <= 0)
@@ -896,9 +896,9 @@ static signed char Lexer_tryParseLiteral(
 			return 0;
 		}
 
-		signed long long value = 0;
+		int64_t value = 0;
 
-		if (sscanf(literal, "%lld", &value) <= 0)
+		if (sscanf(literal, "%ld", &value) <= 0)
 		{
 			return 0;
 		}

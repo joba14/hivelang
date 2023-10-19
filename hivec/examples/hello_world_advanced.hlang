@@ -1,0 +1,27 @@
+
+procedure stdout return i64 do 1 end
+
+procedure write
+	require i64 p64 i64
+	return i64
+do
+	// write id = 1
+	1 syscall3
+end
+
+procedure exit
+	require i64
+do
+	// 60 = exit
+	60 syscall1 drop
+end
+
+procedure main
+	require i64 p64
+	return i64
+do
+	drop drop // Dropping argc and argv
+	"hello, world!\n" stdout write drop
+	0 exit
+	0
+end

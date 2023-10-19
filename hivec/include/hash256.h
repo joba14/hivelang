@@ -13,6 +13,9 @@
 #ifndef _HASH256_H_
 #define _HASH256_H_
 
+#include <stdbool.h>
+#include <stdint.h>
+
 /**
  * @addtogroup hash256
  *
@@ -22,12 +25,12 @@
 /**
  * 256-bit hash's stringified buffer length.
  */
-#define HASH256_STRING_LENGTH ((signed int)64)
+#define HASH256_STRING_LENGTH ((uint64_t)64)
 
 /**
  * 256-bit hash's blocks count.
  */
-#define HASH256_BLOCKS_COUNT ((signed int)(HASH256_STRING_LENGTH / 8)) 
+#define HASH256_BLOCKS_COUNT ((uint64_t)(HASH256_STRING_LENGTH / 8)) 
 
 /**
  * Structure that holds 8 32-bit blocks, stringified version of the hash, and flag representing the
@@ -35,17 +38,17 @@
  */
 struct Hash256
 {
-	unsigned int blocks[HASH256_BLOCKS_COUNT];
+	uint32_t blocks[HASH256_BLOCKS_COUNT];
 	char stringified[HASH256_STRING_LENGTH + 1];
-	signed int valid;
+	bool valid;
 };
 
 /**
  * Hash provided string value into 256-bit hash.
  */
 struct Hash256 hash256(
-	const char* input,
-	signed long long length);
+	const char* const input,
+	const uint64_t length);
 
 /**
  * @}

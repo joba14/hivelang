@@ -126,7 +126,7 @@ signed char Parser_parseTokens(
 
 #if HIVEC_DEBUG
 						Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-							(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+							(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 							"locator of the log above this meesage."));
 #endif
 
@@ -150,7 +150,7 @@ signed char Parser_parseTokens(
 
 #if HIVEC_DEBUG
 				Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-					(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+					(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 					"locator of the log above this meesage."));
 #endif
 
@@ -165,7 +165,7 @@ signed char Parser_parseTokens(
 
 #if HIVEC_DEBUG
 		Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-			(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+			(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 			"locator of the log above this meesage."));
 #endif
 
@@ -324,7 +324,7 @@ static signed char Parser_parseProcedure(
 
 #if HIVEC_DEBUG
 			Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-				(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+				(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 				"locator of the log above this meesage."));
 #endif
 
@@ -336,7 +336,7 @@ static signed char Parser_parseProcedure(
 
 #if HIVEC_DEBUG
 			Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-				(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+				(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 				"locator of the log above this meesage."));
 #endif
 
@@ -352,7 +352,7 @@ static signed char Parser_parseProcedure(
 
 #if HIVEC_DEBUG
 			Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-				(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+				(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 				"locator of the log above this meesage."));
 #endif
 
@@ -375,7 +375,7 @@ static signed char Parser_parseProcedure(
 
 #if HIVEC_DEBUG
 		Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-			(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+			(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 			"locator of the log above this meesage."));
 #endif
 
@@ -394,7 +394,7 @@ static signed char Parser_parseProcedure(
 
 #if HIVEC_DEBUG
 			Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-				(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+				(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 				"locator of the log above this meesage."));
 #endif
 
@@ -406,7 +406,7 @@ static signed char Parser_parseProcedure(
 
 #if HIVEC_DEBUG
 			Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-				(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+				(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 				"locator of the log above this meesage."));
 #endif
 
@@ -424,7 +424,7 @@ static signed char Parser_parseProcedure(
 
 #if HIVEC_DEBUG
 		Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-			(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+			(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 			"locator of the log above this meesage."));
 #endif
 
@@ -471,7 +471,7 @@ static signed char Parser_parseProcedure(
 
 #if HIVEC_DEBUG
 				Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-					(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+					(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 					"locator of the log above this meesage."));
 #endif
 
@@ -509,7 +509,7 @@ static signed char Parser_parseProcedure(
 
 #if HIVEC_DEBUG
 				Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-					(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+					(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 					"locator of the log above this meesage."));
 #endif
 
@@ -529,7 +529,7 @@ static signed char Parser_parseProcedure(
 
 #if HIVEC_DEBUG
 			Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-				(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+				(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 				"locator of the log above this meesage."));
 #endif
 
@@ -557,7 +557,7 @@ static signed char Parser_parseProcedure(
 
 #if HIVEC_DEBUG
 				Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-					(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+					(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 					"locator of the log above this meesage."));
 #endif
 
@@ -583,7 +583,7 @@ static signed char Parser_parseProcedure(
 
 #if HIVEC_DEBUG
 						Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-							(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+							(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 							"locator of the log above this meesage."));
 #endif
 
@@ -615,7 +615,7 @@ static signed char Parser_parseProcedure(
 
 #if HIVEC_DEBUG
 					Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-						(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+						(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 						"locator of the log above this meesage."));
 #endif
 
@@ -642,7 +642,7 @@ static signed char Parser_parseProcedure(
 
 #if HIVEC_DEBUG
 				Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-					(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+					(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 					"locator of the log above this meesage."));
 #endif
 			}
@@ -659,7 +659,7 @@ static signed char Parser_parseProcedure(
 
 #if HIVEC_DEBUG
 		Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-			(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+			(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 			"locator of the log above this meesage."));
 #endif
 
@@ -700,7 +700,7 @@ static signed char Parser_crossReference(
 
 #if HIVEC_DEBUG
 		Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-			(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+			(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 			"locator of the log above this meesage."));
 #endif
 
@@ -764,7 +764,7 @@ static signed char Parser_crossReference(
 
 #if HIVEC_DEBUG
 							Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-								(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+								(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 								"locator of the log above this meesage."));
 #endif
 
@@ -785,7 +785,7 @@ static signed char Parser_crossReference(
 
 #if HIVEC_DEBUG
 						Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-							(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+							(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 							"locator of the log above this meesage."));
 #endif
 
@@ -808,7 +808,7 @@ static signed char Parser_crossReference(
 
 #if HIVEC_DEBUG
 						Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-							(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+							(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 							"locator of the log above this meesage."));
 #endif
 
@@ -830,7 +830,7 @@ static signed char Parser_crossReference(
 
 #if HIVEC_DEBUG
 						Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-							(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+							(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 							"locator of the log above this meesage."));
 #endif
 
@@ -849,7 +849,7 @@ static signed char Parser_crossReference(
 
 #if HIVEC_DEBUG
 						Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-							(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+							(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 							"locator of the log above this meesage."));
 #endif
 
@@ -881,7 +881,7 @@ static signed char Parser_crossReference(
 
 #if HIVEC_DEBUG
 						Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-							(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+							(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 							"locator of the log above this meesage."));
 #endif
 
@@ -900,7 +900,7 @@ static signed char Parser_crossReference(
 
 #if HIVEC_DEBUG
 						Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-							(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+							(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 							"locator of the log above this meesage."));
 #endif
 
@@ -937,7 +937,7 @@ static signed char Parser_crossReference(
 
 #if HIVEC_DEBUG
 							Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-								(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+								(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 								"locator of the log above this meesage."));
 #endif
 
@@ -958,7 +958,7 @@ static signed char Parser_crossReference(
 
 #if HIVEC_DEBUG
 						Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-							(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+							(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 							"locator of the log above this meesage."));
 #endif
 
@@ -983,7 +983,7 @@ static signed char Parser_crossReference(
 
 #if HIVEC_DEBUG
 				Queue_enqueue(logs, Log_create("debug", SEVERITY_WARNING,
-					(struct Location) { .file = (const char*)__FILE__, .line = (signed long long)__LINE__, .column = 0 },
+					(struct Location) { .file = (const char*)__FILE__, .line = (int64_t)__LINE__, .column = 0 },
 					"locator of the log above this meesage."));
 #endif
 			}
